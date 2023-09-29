@@ -1,0 +1,100 @@
+<%- include('../layouts/header.ejs') -%>
+<% 
+      if(typeof message !== 'undefined'){
+        %>
+        <alert class="alert alert-primary text-center"><%= message %></alert>
+        <%
+      }
+    %>
+<div class="text-center center-div" id="login">
+  <div class="container col-5 p-5 custom-shadow">
+    <div class="title">
+      <h2 class="font-weight-bold">Create New User</h2>
+      <!-- <span>Create New Users </span> -->
+      <% if (locals.logout) { %>
+      <div class="alert alert-primary text-center"><%= logout %></div>
+      <% } %>
+    </div>
+    <form action="" method="POST" onsubmit="return validateForm();">
+      <a href="/admin/dashboard">Go Back</a>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="name"
+          name="name" 
+          id="name"
+   
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          id="email"
+          required
+        />
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="mobile-no"
+            name="mobile"
+            id="mobile"
+            required
+          />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter a Password"
+          name="password"
+          id="password"
+          required
+        />
+      <!-- <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Repeat your Password"
+            name="password"
+            id="password"
+            required
+          /> -->
+        
+        <span id="password-error" class="error"></span>
+      </div>
+      <button type="submit" class="btn btn-primary rounded-pill mt-3">
+        Add User
+      </button>
+     
+    </form>
+
+   
+    
+
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    const password = document.getElementById("password").value;
+    const passwordError = document.getElementById("password-error");
+    passwordError.textContent = "";
+
+    let isValid = true;
+
+    if (password.length < 8) {
+      passwordError.textContent = "Password must be at least 8 characters";
+      isValid = false;
+    }
+
+    return isValid;
+  }
+</script>
+
+<%- include('../layouts/footer.ejs') -%>

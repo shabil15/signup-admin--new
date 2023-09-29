@@ -1,0 +1,68 @@
+<%- include('../layouts/header.ejs') -%>
+<% 
+      if(typeof message !== 'undefined'){
+        %>
+        <alert class="alert alert-primary text-center"><%= message %></alert>
+        <%
+      }
+    %>
+<div class="text-center center-div" id="login">
+  <div class="container col-5 p-5 custom-shadow">
+    <div class="title">
+      <h2 class="font-weight-bold">Edit User</h2>
+      <span>Edit the existing User</span>
+      <% if (locals.logout) { %>
+      <div class="alert alert-primary text-center"><%= logout %></div>
+      <% } %>
+    </div>
+    <form action="" method="POST" >
+      <!-- <p class="text-center mt-3">Already have an account? <a href="/login">Login</a></p> -->
+      <a href="/admin/dashboard">Go Back</a>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="name"
+          name="name" 
+          id="name"
+          value="<%=user.name%>"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          id="email"
+          value="<%=user.email%>"
+          required
+        />
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="mobile-no"
+            name="mobile"
+            id="mobile"
+            value="<%=user.mobile%>"
+            required
+          />
+      </div>
+        <input type="hidden"  name="id" value="<%=user._id%>">
+      </div>
+      <button type="submit" class="btn btn-primary rounded-pill mt-3">
+        Update User
+      </button>
+     
+    </form>
+
+   
+    
+
+  </div>
+</div>
+
+
+<%- include('../layouts/footer.ejs') -%>

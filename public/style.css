@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans&display=swap');
+
+body{
+  font-family:'Open Sans',sans-serif;
+  background-image: url(sam-wermut-3CNe-P7EH_g-unsplash.jpg);
+  background-size: cover;
+  background-color: rgba(22,40,44,255);
+  
+}
+
+.center-div{
+  padding-top: 5%;
+}
+
+/* .btn-primary{
+  padding: .4em 2em;
+} */
+    
+
+.form-group{
+  margin-top: 1em;
+}
+.custom-shadow {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); 
+}
+/* 
+.div1{
+  height: 600px;
+} */
+
+.table-dark{
+  opacity: 80%;
+}

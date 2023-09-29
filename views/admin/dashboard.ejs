@@ -1,0 +1,73 @@
+<%- include('../layouts/header.ejs') -%>
+
+
+
+
+<section id="user-list">
+  <div id="content"  padding: 3rem;>
+    <h1 class="text-center text-secondary bg-secondary text-white p-3">USERS LIST</h1> 
+    
+    
+  <div class="d-flex justify-content-end mb-4 me-2">
+    <form >
+    <a href="/admin/logout"  class="btn btn-danger">Admin Logout</a>
+</form>
+   </div>
+   <!-- search -->
+    
+<div class="col-4 mx-5 mb-2 " >
+    <form class="d-flex">
+      <input class="form-control me-1" type="text" placeholder="Search" name="search">
+      <input class="btn btn-primary me-5 " type="submit" value="Search">
+    </form>
+   </div> 
+   <!-- <form  class="flex-css-1">
+    <input type="text" placeholder="search..." name="search">
+     <input type="submit" value="Search"> -->
+  <!-- </form> -->
+   <!-- search -->
+  
+   
+   <a class="nav-link active text-bg-primary text-center p-3 mt-3" href="/admin/new-user"  >Add New User +</a>
+    <table class="table table-dark table-hover mb-2 ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone</th>
+                
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (users.length > 0){
+                for(i=0;i<users.length;i++){ %>
+                    <tr>
+                        <th scope="row">
+                            <%= (i+1) %>
+                        </th>
+                        <td>
+                            <%=users[i].name%>
+                        </td>
+                        <td>
+                            <%=users[i].email%>
+                        </td>
+                        <td>
+                          <%=users[i].mobile%>
+                      </td>
+                    <td>
+                      <a class="btn btn-primary
+                      '  py-0 px-2" href="/admin/edit-user?id=<%=users[i]._id %>">Edit</a>
+                      <a class="btn btn-danger py-0 px-2" href="/admin/delete-user?id=<%=users[i]._id %>" onclick=" return confirm('Are You want to delete <%=users[i].name %>')">Delete</a>
+                    </td>
+                    </tr>
+                <% } } %>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+
+<%- include('../layouts/footer.ejs') -%>
+  
