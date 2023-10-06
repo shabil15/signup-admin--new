@@ -5,11 +5,11 @@ const isLogin = async (req, res, next) => {
           next();
       } else {
           res.redirect('/'); 
-      }
+      } 
   } catch (error) {
       console.log(error.message);
       res.status(500).send('Server Error');
-  }
+  }  
 }
 
 const isLogout = async (req, res, next) => {
